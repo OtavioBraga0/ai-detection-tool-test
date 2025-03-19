@@ -21,7 +21,8 @@ export function Header() {
   });
 
   useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("user") || "{}"));
+    const storagedUser = localStorage.getItem("user");
+    setUser(storagedUser ? JSON.parse(storagedUser) : null);
   }, []);
 
   return (

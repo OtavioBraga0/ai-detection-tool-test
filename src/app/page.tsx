@@ -6,14 +6,12 @@ import { IHomeContent } from "@/entities/Home.type";
 import { getStrapiData } from "@/services/strapi/get-strapi-data";
 import Link from "next/link";
 
-let loadedContent: IHomeContent | undefined;
-
-async function loader() {
-  loadedContent = await getStrapiData("home");
+async function loader(): Promise<IHomeContent> {
+  return await getStrapiData("home");
 }
 
-export default function Home() {
-  loader();
+export default async function Home() {
+  const loadedContent = await loader();
 
   return (
     <div>
