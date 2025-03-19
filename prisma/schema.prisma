@@ -1,0 +1,18 @@
+generator client {
+    provider        = "prisma-client-js"
+    previewFeatures = ["relationJoins"]
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model AiDetection {
+    uid        String @id @unique @default(uuid())
+    content    String
+    documentId String
+    userId     String
+
+    createdAt DateTime @default(now())
+}
