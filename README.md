@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Detection Tool - Test
 
-## Getting Started
+### How to setup and run
 
-First, run the development server:
+First of all create `.env` using as example `.env.example`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Run `npx prisma generate` to create the database
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Run `yarn dev` or `npm run dev` to run the project
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Techinical Choices
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### Atomic Design
 
-## Learn More
+Atomic Desing as structure for components. Basically was splitted in 4 folders
 
-To learn more about Next.js, take a look at the following resources:
+- Atoms - for single and simple components
+- Molecules - for a aggregate of Atoms components
+- Organisms - for aggregate of Molecules and Atoms components
+- UI - for Shadcn components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Clean Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+I used a abstraction of Clean Architecture.
 
-## Deploy on Vercel
+- Services Layer - used for `server actions` and external communications
+- Domain Layer - used for `entities`, `schemas` and `store`
+- App Layer - used for `presentation`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Integrations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Was created 2 instances of `axios`, for `strapi` and `ud`.
+
+Both was configured with `baseUrl` to appoint each API.
+
+#### Strapi
+
+Was created a generic function to comunicate with Strapi API and return the content populated. On page, was created a simple function to call this function as server side and populate the screen with content.
+
+#### UD
+
+Was created 2 functions for comunicate with UD API.
+
+- Create a new document, sending a content and receiving a documentID. With this we can store on database all user's injections
+
+- Query the documents to receive the results of detection
+
+Was created a interval to get the list of injection on DB and populate our table.
+
+When clicked on view button, open a modal to show more detailed information about result.
+
+When clicked on delete button, the injection is deleted
