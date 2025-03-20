@@ -5,18 +5,16 @@ import {
   AIDetectionSchema,
 } from "@/domain/schemas/AIDetection.schema";
 import { actionClient } from ".";
-import { udInstance } from "../ud";
 import { prismaClient } from "..";
 import { cookies } from "next/headers";
+import { udQuery } from "../ud/query";
+import { udDetect } from "../ud/detect";
 
 export const submitAiDetection = actionClient
   .schema(AIDetectionSchema)
   .action(async ({ parsedInput: { content } }) => {
     try {
-      const response = await udInstance.post("/detect", {
-        text: content,
-        key: process.env.UD_API_KEY,
-      });
+      const response = await udDetect(content);
 
       const cookie = await cookies();
 
@@ -83,10 +81,7 @@ export const getAiDetectionDetails = async (id: string) => {
       },
     });
 
-    const response = await udInstance.post("/query", {
-      id: detection?.documentId,
-      key: process.env.UD_API_KEY,
-    });
+    const response = await udQuery(detection.documentId);
 
     return {
       ...detection,
