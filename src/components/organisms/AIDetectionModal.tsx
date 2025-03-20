@@ -13,7 +13,7 @@ import {
 } from "@/domain/entities/AIDetection.type";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, CircleX } from "lucide-react";
 
 const BadgeStatus: { [key: string]: string } = {
   done: "bg-green-400 text-white",
@@ -94,10 +94,22 @@ export function AIDetectionModal() {
                       <Label>
                         {ResultDetails[key as keyof typeof ResultDetails]}
                       </Label>
-                      {result < 70 ? (
-                        <CircleCheck className="text-green-400" />
+                      {key !== "human" ? (
+                        <>
+                          {result < 70 ? (
+                            <CircleCheck className="text-green-400" />
+                          ) : (
+                            <CircleX className="text-red-400" />
+                          )}
+                        </>
                       ) : (
-                        <CircleCheck className="text-red-400" />
+                        <>
+                          {result < 70 ? (
+                            <CircleX className="text-red-400" />
+                          ) : (
+                            <CircleCheck className="text-green-400" />
+                          )}
+                        </>
                       )}
                     </div>
                   )
