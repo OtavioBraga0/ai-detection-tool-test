@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useAction } from "next-safe-action/hooks";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
-import { AuthSchema } from "@/schemas/Auth.schema";
+import { AuthSchema } from "@/domain/schemas/Auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
 import { Input } from "../ui/input";

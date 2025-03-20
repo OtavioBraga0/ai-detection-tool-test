@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AIDetectionSchema } from "@/schemas/AIDetection.schema";
+import { AIDetectionSchema } from "@/domain/schemas/AIDetection.schema";
 import { submitAiDetection } from "@/services/actions/aiDetection";
 import { useAction } from "next-safe-action/hooks";
 import { toast } from "react-toastify";

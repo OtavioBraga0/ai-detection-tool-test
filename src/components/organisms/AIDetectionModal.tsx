@@ -10,7 +10,7 @@ import { useCallback, useEffect, useState } from "react";
 import {
   IAIDetectionDetails,
   ResultDetails,
-} from "@/entities/AIDetection.type";
+} from "@/domain/entities/AIDetection.type";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CircleCheck } from "lucide-react";

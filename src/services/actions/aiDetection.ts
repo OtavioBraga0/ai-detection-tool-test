@@ -3,7 +3,7 @@
 import {
   AIDetectionDeleteSchema,
   AIDetectionSchema,
-} from "@/schemas/AIDetection.schema";
+} from "@/domain/schemas/AIDetection.schema";
 import { actionClient } from ".";
 import { udInstance } from "../ud";
 import { prismaClient } from "..";

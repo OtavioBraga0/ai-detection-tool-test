@@ -2,7 +2,7 @@ import { Paragraph } from "@/components/atoms/Paragraph";
 import { Title } from "@/components/atoms/Title";
 import { Header } from "@/components/molecules/Header";
 import { Button } from "@/components/ui/button";
-import { IHomeContent } from "@/entities/Home.type";
+import { IHomeContent } from "@/domain/entities/Home.type";
 import { getStrapiData } from "@/services/strapi/get-strapi-data";
 import Link from "next/link";
 

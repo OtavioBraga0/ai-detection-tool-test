@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 import { supabaseClient } from "..";
 import { actionClient } from ".";
-import { AuthSchema } from "@/schemas/Auth.schema";
+import { AuthSchema } from "@/domain/schemas/Auth.schema";
 
 export const signIn = actionClient
   .schema(AuthSchema)

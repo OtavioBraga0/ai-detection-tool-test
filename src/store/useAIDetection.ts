@@ -1,4 +1,4 @@
-import { IAIDetection } from "@/entities/AIDetection.type";
+import { IAIDetection } from "@/domain/entities/AIDetection.type";
 import { create } from "zustand";
 
 type AIDetectionType = {
