@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Label } from "../ui/label";
 
 import { Badge } from "../ui/badge";
-import { useAIDetection } from "@/store/useAIDetection";
+import { useAIDetection } from "@/domain/store/useAIDetection";
 import { useCallback, useEffect, useState } from "react";
 import {
   IAIDetectionDetails,

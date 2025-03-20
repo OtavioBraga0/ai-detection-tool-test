@@ -14,7 +14,7 @@ import {
   getListAiDetections,
 } from "@/services/actions/aiDetection";
 import { Button } from "../ui/button";
-import { useAIDetection } from "@/store/useAIDetection";
+import { useAIDetection } from "@/domain/store/useAIDetection";
 import { useEffect } from "react";
 import { useAction } from "next-safe-action/hooks";
 import { toast } from "react-toastify";
